@@ -1,6 +1,4 @@
 \documentclass[12pt,reqno]{amsart}
-
-
 \usepackage{enumerate}
 \usepackage{mathrsfs,hyperref}
 \usepackage{amsfonts}
@@ -124,151 +122,205 @@
 \newtheorem{example}[proposition]{Example}
 
 \begin{document}
-	Let $\FF_q$ be a finite field and $p=\mathrm{char}(\FF_q)$. Let $G$ be an almost simple primitive permutation group with socle $G_0=\PSU_3(q)$ and stabilizer $H$. In this section we characterize all the intersecting subgroups of $G$. 
-	
-	We first assume  $G$ is simple, which means $G=G_0$. The maximal subgroups of $G$ are recorded in 'low dimension book', we will say a little bit more about the classes of elements in the Sylow-p subgroup of $G$.
-	
-	\begin{lemma}\label{Syl_p}
-		Let $Q$ be the Sylow-$p$ subgroup of $G$, and let $N=N_G(Q)$ be the normalizer of $Q$. Then the elements of $Q$ can be represented as $Y(b,a)$ and the elements of $N$ can be represented as $(Y(b,a),\tau(\lambda))$ where $a, b,\lambda \in \FF_{q^2}^{\times}$ with the following computation method.
-		\begin{enumerate}[\rm(i)]
-			\item $a+a^q+bb^q=0$
-			\item $Y(b_1,a_1)Y(b_2,a_2)=Y(b_1+b_2,a_1+a_2-b_1^qb_2)$
-			\item $Y(b_0,a_0)^{-1}Y(b,a)Y(b_0,a_0)=Y(b,a+b_0^qb-b^qb_0)$
-			\item 
-			$Y(b,a)^{\tau(\lambda)}=Y(\lambda^{1-2q}b,\lambda^{-(q+1)}a)$
-		\end{enumerate}
-	\end{lemma}
-\begin{proof}
-	Let $(V,B)$ be a $3$-dimensional unitary space over $\FF_q^2$ with a basis $\{e_1,f_1,e_2\}$, where $(e_1,f_1)$ is a hyperbolic pair and $e_2$ is a norm-$1$ vector perpendicular to $\lr e_1, f_1\rr$.
-	
-	By a quick examination at the table we find that the Sylow-$p$ subgroup of $G$ is contained in the stabilizer of an isotropic space, therefore we may assume $Q\le G_{\lr e_1\rr}$.
-	
-	By calculation, the matrices of $G_{\lr e_1\rr}$ are $A{:}B$, where $B=\{\mathrm{diag}(\lambda,\lambda^{-q},\lambda^{q-1})\mid \lambda \in \FF_{q^2}^{\times} \}$ and 
-	\begin{equation*}
-		A=\left\{ \overline{\begin{bmatrix}
-			1 & a & -b^q\\
-			0 & 1 & 0 \\
-			0 & b & 1
-		\end{bmatrix}} \mid a, b\in \FF_{q^2},  a+a^q+bb^q=0  \right\},
-	\end{equation*}
-where the line over the matrix means the project image of this matrix in the unitary groups modulo scalars.
-We denote the matrix $$\overline{\begin{bmatrix}
-		1 & a & -b^q\\
-	0 & 1 & 0 \\
-	0 & b & 1
-\end{bmatrix}}$$ as $Y(b,a)$, a calculation of matrix multiplication justifies Lemma \ref{Syl_p}.
-\end{proof}
-\begin{lemma}
-	Let $Q$ be the Sylow-$p$ subgroup of $G$, if $p=2$ then $Q$ has exponent $4$, if $p\neq 2$, then $Q$ has exponent $p$.  
-\end{lemma}
-\begin{proof}
-	It follows directly from Lemma \ref{Syl_p} (iii).
-\end{proof}
-\begin{lemma}\label{Sylp_int}
-	Two different Sylow-$p$ subgroups of $G$ intersect trivially.
-\end{lemma}
-\begin{proof}
-	Let $g\neq N_G(Q)$, then $Q\neq Q^g$ and $Q\cap Q^g=G_{\lr e, e^g \rr }\cong \GU_2(q)$. Let $x\in Q\cap Q^g$, one may consider the matrix of $x$ with respect to $\{e_1,e_1^g,f\}$ where $f\in \lr e_1,e_1^g \rr$. We get that $x|_{\lr e_1,e_1^g \rr}$ is  unipotent and $x|_{\lr f \rr}$ is trivial. 
-	Moreover, since both $e_1$ and $e_1^g$ are eigenvectors of $x$, we conclude that $x|_{\lr e_1, e_1^g\rr} $ is semisimple and hence is trivial. Combining all above facts, we get $x=1$.	
-\end{proof}
-One may note that $N_G(Q)$ is solvable with a normal Sylow-$p$ subgroup, then we have the following:
-\begin{lemma}\label{subgp}
-	Let $I$ be a subgroup of $N_G(Q)$, then $I=(I\cap (Q)){:}C$ where $C$ is conjugate to a subgroup of $\lr \tau(\lambda) \rr$.
-\end{lemma}
-\begin{proof}
-	Clearly we have $(I\cap Q)\trianglelefteq I $ is the Sylow-$p$ subgroup of $I$, since $I\le N_G(Q)$ is solvable, let $I_{p'}$ be a Hall-$p'$ subgroup of $I$, we have $I=(I\cap Q){:}I_{p'}$. 
-	Since $\lr \tau(\lambda) \rr$  is a Hall-$p'$ subgroup of $N_{G}(Q)$, we conclude that  $I_{p'}$ is conjugate to a subgroup of $\lr \tau(\lambda) \rr$. 
-\end{proof}
-\begin{lemma}
-	Let $x\in Q\backslash Z(Q)$, then $|C_{N_G(Q)}(x)|=q^2$.
-\end{lemma}
-\begin{proof}
-	It follows directly from Lemma \ref{Syl_p} (iii).
-\end{proof}
-\begin{lemma}\label{conjp}
-	The centre of  $Q$ is elementary of order $q$ and $Q/Z(Q)$ is isomorphic to the additive group of $\FF_{q^2}$.
-	
-	Let $x_1,x_2\in Q\backslash Z(Q)$, $x_1$ and $x_2$ are conjugate in $G$ if and only if their image in 
-	$Q/Z(Q)$ are conjugate in $N/Z(Q)$.
-\end{lemma}
-\begin{proof}
-	By Lemma \ref{Syl_p} (iii), we get that $Z(Q)=\{Y(0,a)\mid a+a^q=0 \}$. 
-	By Lemma \ref{Syl_p} (ii), one get that $Z(Q)$ is elementary abelian and the first statement holds.
-	
-	Since two different Sylow-$p$ subgroups of $G$ intersects trivially, $x_1$ and $x_2$ are conjugate in $G$ if and only if they are conjugate in $N_G(Q)=N$.
-	Lemma \ref{Syl_p}(iii) implies that if $x\notin Z(Q)$, all elements in  $xZ(Q)$ are conjugate in $Q$, 
-	hence the second statement holds.
-\end{proof}
+	Let $G$ be an almost simple primitive permutation group with socle $G_0\cong \PSU_3(q)$, let $H$ be a stabilizer of $G$ and let $K$ be a maximal intersecting subgroup such that $|K|\ge |H|$.
+	We first assume $G$ is simple, and $G$ does not have a maximal subgroup of Aschbaher class $\mathcal{I}$. Then the order of maximal subgroups of $G$ is ordered as the following:
+	\begin{equation}\label{order}
+		\begin{aligned}
+		&|E_q^{1+2}{:}(q^2-1)/(q+1,3)|>|\GU_2(q)/(q+1,3)|>|\mathrm{SO}_3(q)|>(|\PSU_3(q^{1/3})|\, \text{if $q$ is a cube})\\
+		&>|(q+1)^2/(q+1,3).S_3|>|\frac{q^2-q+1}{(q+1,3)}{:}3|>(|\PSU_3(q^{1/r})|\; \text{if $q=q_0^r$ for some odd prime $r$}) \\
+		&>(|3^2{:}Q_8.\frac{(q+1,9)}{3}|\; \text{if $p=q\equiv 2\pmod 3$, $q\ge 11$})
+	\end{aligned}
+	\end{equation}
+ \textbf{We omit the calculation part here}.
+  Let $Q$ be a Sylow-$p$ subgroup of $G$, we then state a Lemma about subgroups of $Q$.
+  \begin{lemma}\label{unipotent}
+  	If $S\le Q$ such that all elements in $S\backslash 1$ are conjugate to $Z(Q)$ or all elements in $S\backslash 1$ are not conjugate to $Z(Q)$ in $N_G(Q)\cong Q{:}\frac{q^2-1}{(3,q+1)}$, then $|S|\le q$.
+  \end{lemma}
+  \begin{proof}
+  	Assume all elements in $S$ are conjugate to $Z(Q)$ then $S\le Z(Q)$ and the result holds immediately. 
+  	Assume all elements in $S$ are conjugate to elements in $Q\backslash Z(Q)$, then $S\cap Z(Q)=1$ and hence for any $s_1,s_2\in S$ we have 
+  	 $$[s_1,s_2]\le S\cap Q'=S\cap Z(Q)=1,$$
+  	 Therefore, we have that $S$ is abelian and $S\cap Z(Q)=1$, and hence $|S|\le q$ by (iii) of basic facts \textbf{Lemma}.
+  \end{proof}
 
-\begin{lemma}
-	All non-trivial elements in $Z(Q)$ are conjugate. If $q\nequiv -1 \pmod 3$, then all elements in $Q\backslash Z(Q)$ are conjugate, if $q\equiv -1 \pmod 3$, then the elements in $Q\backslash Z(Q)$ forms three $G$ classes.
-\end{lemma}
-\begin{proof}
-	Since $Z(Q)=\{Y(0,a)\mid a+a^q=0 \}$, Lemma \ref{Syl_p}(iv) implies the first statement.
-	
-	Let $\lambda $ be a generator of $\FF_{q^2}^{\times}$.
-	By calculation we get $(2q-1,q^2-1)=(3,q+1)$, hence if $q\nequiv -1 \pmod 3$, then $N/Z(Q)$ is isomorphic to $\AGL_1(q^2)$ and all non-identity elements in $Q/Z(Q)$ are conjugate in $N/Z(Q)$.
-	If $q \equiv -1 \pmod 3$ then $N/Z(Q)\cong \FF_{q^2}^{+}{:}\lr \lambda^3\rr $ and the non-identities in $Q/Z(Q)$ forms three $N/Z(Q) $-classes, and the representative for the three classes are $\{Y(b,a)\mid b\in \lr\lambda^3\rr  \}$, $\{Y(b,a)\mid b\in \lambda\lr \lambda^3\rr  \}$ and $\{Y(b,a)\mid b\in \lambda^2\lr \lambda^3\rr  \}$ respectively.
-\end{proof}
-
-We then say a little bit more about the semi-simple elements of $G$ in the following Lemma.
-\begin{lemma}\label{semisimple}
-	All cyclic subgroups of order $q^2-1$ are conjugate in $G$, and all cyclic subgroups of order $q^2-q+1$ are conjugate, any semi-simple element of $G$ are contained in a cyclic subgroup of order $q^2-1$ or in a cyclic subgroup of order $q+1$ or in a cyclic subgroup of order $q^2-q+1$.
-\end{lemma}
-\begin{proof}
-  Let $x\in G$ be a semi-simple element and let $\lambda_1,\lambda_2$ and $\lambda_3$ be three eigenvalues of $x$ in $\overline{\FF_{q^2}}$. 
-  If $x$ is diagonalizable over $\FF_{q^2}$, $\lambda_1,\lambda_2,\lambda_3\in \FF_{q^2}$.
-  By \textbf{Derangement and prime's thm} $x$ is conjugate to $x^{-\varphi T}$, hence $\{\lambda_1,\lambda_2,\lambda_3\}=\{\lambda_1^{-q},\lambda_2^{-q},\lambda_3^{-q}\}$, if $\lambda_i^{q+1}\neq 1$ for some $i\in[3]$,  then $$\{\lambda_1,\lambda_2,\lambda_3\}=\{\mu, \mu^{-q}, \mu^{q-1} \}$$ for some $\mu $ such that $\mu^{q+1}\neq 1$ and by \textbf{derangement and prime thm} $x$ is $\GU_3(q)$-conjugate to an element of the cyclic subgroup $C$ of order $q^2-1$ where $$C=\{\mathrm{diag}(\mu_0,\mu_0^{-q},\mu_0^{q-1})\mid \mu_0\in \FF_{q^2}^{\times} \}.$$ 
-  
-  
-  If $\lambda_i^{q+1}=1$ for $i \in [3]$, then the order of $x$ divides $q+1$.
-  
-  Moreover if $x$ is not diagonalizable over $\FF_{q^2}$, then we claim that $\lr x \rr$ acts irreducibly on $V$.
-  Assume $U$ is a $2$-dimensional $x$-subspace, then $x|_U\in \GU_2(q)$ and hence the order of $x$ divides $q-1$ or the order of $x$ divides $q+1$, $x$ is diagonalizable over $\FF_{q^2}$ anyway, hence the claim holds.
-   Therefore the three eigenvalues of $x$ are $\{\lambda, \lambda^{q^2},\lambda^{q^4} \}$,
-   for some $\lambda$ in $\FF_{q^6}\backslash\FF_{q^2}$. Since $x$ is conjugate to $x^{-\varphi T}$,  we have that 
-   \begin{equation*}
-   	\{\lambda, \lambda^{q^2},\lambda^{q^4} \}=\{\lambda^{-q}, \lambda^{-q^3}, \lambda^{-q^5}  \}
-   \end{equation*}
-   If $\lambda^{-q}=\lambda$, then $\lambda^{q+1}=1$ and $\lambda \in \FF_{q^2}$, if $\lambda^{-q}=\lambda^{q^2}$, then $\lambda^{q(q+1)}=1$ and hence  $\lambda \in \FF_{q^2}$, therefore we conclude that $\lambda^{-q}=\lambda^{q^4}$ and we have the following 
-   \begin{equation*}
-   	\begin{aligned}
-   	\lambda^{q(q^3+1)}&=1\\
-   	\lambda^{1+q^2+q^4}&=1
-   \end{aligned}
-   \end{equation*}
-Therefore, $\lambda^{q^2-q+1}=1$ since the greatest common divisor of $q^4+q^2+1$ and $q^3+1$ is $q^2-q+1$.
-
-
-Let $x$ and $y$ be two elements of order $q^2-q+1$, then we consider the eigenvalues of $x$ and $y$ and conclude that $x$ has the same rational canonical form with $y^i$ for some integer $i$ and hence $\lr x \rr$ and $\lr y \rr$ are conjugate in $\GU_3(q)$, they are conjugate in $\SU_3(q)$ since their centralizer has full image in $\GU_3(q)/\SU_3(q)$.
-Similarly, we consider the eigenvalues of two elements of order $q^2-1$ and get that two cyclic subgroups of order $q^2-1$ are conjugate in $\SU_3(q)$.
-\end{proof}
-
-We are now ready to determine the intersecting subgroups contained in $N=N_G(Q)$ when $H$ is of type $\SU_3(q_0)$, they are recorded in the following lemma.
-
-\begin{lemma}
-	Let $\FF_{q_0}$ be a subfield of $\FF_q$ such that $[\FF_q:\FF_{q_0}]$ is an odd prime.  Assume $H=\SU_3(q_0)$, then
+We state about the Sylow-$2$ and Sylow-$3$ subgroup of $G$ which will be useful later.
+\begin{lemma}\label{Syl-2}
 	\begin{enumerate}[\rm(i)]
-		\item If  $[\FF_q:\FF_{q_0}]\neq 3$ or $3\notdivides q-1$, the maximal intersecting subgroup of  $G$ contained in $N$ is $Q{:}\{\tau(\lambda)\mid \lambda\in \FF_{q^2_0} \}$.
-		\item If $[\FF_q:\FF_q]=3$ and $q\equiv 1 \pmod 3$, let $K$ be a maximal intersecting subgroup of $G$, then $K=(K\cap Q){:}\{\tau(\lambda)\mid \lambda\in \FF_{q^2_0} \}$, where $K\cap Q\subseteq  \{Y(b,a)\mid b\in \lr \lambda^3 \rr   \}$ and $\lambda$ is generator of $\FF_{q^2}$.
+		\item If $q\equiv 1\pmod 4$, then the Sylow-$2$ subgroup of $G$ is isomorphic to $\mathrm{SD}_{4(q-1)_2}$, if $J$ is a $2$-group of $G$ of exponent $4$, then $|J|\le 8.$
+		\item If $q\equiv -1 \pmod 4$, then the Sylow-$2$ subgroup of $G$ is isomorphic to $\lr a_1,a_2, b\mid a_1^t=a_2^t=1,a_1a_2=a_2a_1,a_1^b=a_2,a_2^b=a_1 \rr$, where $t=(q+1)_2$ If $J$ is a $2$-group of $G$ of exponent $4$, then $|J|\le 16.$
+		\item If $q$ is odd and $J$ is a subgroup of $G$ and $J$ is a $2$-group of exponent $2$, then  $J\cong 2$ or $J\cong 2^2.$
 	\end{enumerate}
-\begin{proof}
-	If $[\FF_q:\FF_{q_0}]\neq 3$, $Q\cap H=\{Y(b,a)\mid a,b\in \FF_{q^2_0}  \}$.
-	If $q\equiv -1 \pmod 3$, since $3 \notdivides \frac{q^2-1}{q_0^2-1}$, $\FF_{q^2_0}^\times$ is not contained in the cyclic subgroup of index $3$ of $\FF_{q^2}^{\times}$, we conclude that $Q\cap H$ contains all three $G$-classes of elements in $Q\backslash Z(Q)$.
-	If $3\notdivides q+1$, then  all elements in $Q\backslash Z(Q)$ are conjugate and hence the elements in $Q$ are all conjugate to $H\cap Q$.
-	 Let  $k\in Q{:}\{\tau(\lambda)\mid \lambda\in \FF_{q_0}\}$, then either $k\in Q$ or $k$ is conjugate to the unique cyclic subgroup of order $q_0^2-1$ in $N$. If $k\in Q$ since $H$ contains all $G$ classes of elements in $Q$, $k$ is conjugate to an element of $H$.
-	If $k$ is contained in the unique cyclic subgroup of  order $q_0^2-1$ in $N$, since this cyclic subgroup is in $H$, we conclude $k$ is conjugate to an element in $H$.
-	On the other hand, let $K_0$ be an intersecting subgroups contained in $N$, by Lemma \ref{subgp} we have $K_0=(K_0\cap Q){:}K_{0p'}$, $K_{0p'}\subseteq q_0^2-1$ since the semisimple elements in $H$ are of order dividing $q_0^2-1$ or of order dividing $q_0^2-q_0+1$ and $(q_0^2-q_0+1,q^2-1)=(q_0+1,3)$. Therefore we get $K_0\le Q{:}\{\tau(\lambda)\mid \lambda\in \FF_{q^2_0}\}.$
+\end{lemma}
+  \begin{proof}
+  	Let $G_2$ be the Sylow-$2$ subgroup of $G$. 
+  	
+  	If $q\equiv 1 \pmod 4$, then $|G_2|=2(q-1)_2$. Let $\mu$ generate the $2$-group of $\FF_{q^2}^{\times}$, we take a basis $\{e_1,f_1,e_2\}$ of a dimension $3$ unitary space over $\FF_{q^2}$ such that $(e_1, f_1)$ is a hyperbolic pair and $e_2$ is a norm $1$ vector in $\lr e_1, f_1 \rr^{\perp}$. Let $a= \mathrm{diag}(\mu, \mu^{-q}, \mu^{q-1}), b=\begin{bmatrix}
+  		0 & 1 & 0\\
+  		1 & 0 & 0\\
+  		0 & 0 & -1
+  	\end{bmatrix}$ and $L=\lr a, b\rr$, then $L$ is a subgroup of $\SL_3(q^2)$ of order $4(q-1)_2$, and $L$ contains all unitary matrices with respect to the basis $\{e_1, f_1,e_2\},$ hence $L\cong \bar{L}=L/Z(\SU_3(q))$ is a Sylow-$2$ subgroup of $G$.
+   Since $\lambda^{q-1}=-1,$ we have $\lambda^{-q}=-\lambda^{-1}=\lambda^{(q-1)_2-1},$ and hence $\bar{L}\cong \mathrm{SD}_{4(q-1)_2}.$ Let $M$ be a subgroup of $L$, if $M$ is of exponent $4$, then $|M\cap \lr a \rr| \le 4$ and $|M|\le 8$, if $M$ is of exponent $2$, then $|M\cap \lr a \rr|\le 2$ and hence $|M|\le 4$.
+   
+   If $q\equiv 3\pmod 4$, then $|G_2|=2(q+1)_2^2$ and hence $G_2$ is contained in a maximal $C_2$ subgroup of $G$ isomorphic to $(q+1)^2/(3,q+1){:}S_3,$ and we conclude that the first statement of $(ii)$ holds.  
+   Let $G_2=\lr a_1,a_2,b\mid a_1^t=a_2^t=b^2=1,a_1a_2=a_2a_1,a_1^b=a_2,a_2^b=a_1 \rr$, where $t=(q+1)_2$. Let $M$ be a subgroup of $G_2$, if $M$ is of exponent $4$, then $M\cap \lr a_1, a_2 \rr \le \lr a_1^{t/4},a_2^{t/4}\rr$. Let $g\in M\backslash \lr a_1,a_2\rr$, then $M=\lr M\cap \lr a_1,a_2\rr, g  \rr$, we write $g=a_1^ma_2^nb$. Since $g^4=1$ and $g^2=(a_1a_2)^{m+n}=1$, we conclude $m+n$ is $t$ or $t/2$. We note that  $a_1^{-m}ga_1^m=a_2^{m+n}b$, hence 
+   \begin{equation*}
+   	M^g=\lr  M\cap \lr a_1^{t/4},a_2^{t/4} \rr, a_2^{m+n}b \rr \le \lr a_1^{t/4}, a_2^{t/4},a_2^{m+n}b\rr =\lr a_1^{t/4},a_2^{t/4},b \rr,
+   \end{equation*}
+   \textbf{We then use Magma to find all subgroup of exponent $2$ and $4$ of $\lr a_1^{t/4}, a_2^{t/4}, t\rr$}, we conclude that $\rm(ii)$ and $\rm(iii)$ hold. 
+  \end{proof}
+
+\begin{lemma}\label{Syl-3}
+	\begin{enumerate}[\rm(i)]
+		\item If $q\equiv -1\pmod 3$, then the Sylow-$3$ subgroup of $G$ is isomorphic to $\lr a_1,a_2,b\mid a_1^t=a_2^t=b^3=a_1a_2=a_2a_1=1,a_1^b=a_1^{-1}a_2,a_2^b=a_1^{-1}  \rr.$
+		If $J$ is a $3$-group of exponent $3$, then $|J|\le 3(q+1,9)$, moreover if $|J|=27$, then $J$ is non-abelian.  
+		\item 	If $q\equiv 1 \pmod 3$, then the Sylow-$3$ subgroup of $G$ is cyclic.
+	\end{enumerate}
 	
-	If $[\FF_q{:}\FF_{q_0}]=3$, and let $K$ be an intersecting subgroup of $G$, similarly by Lemma \ref{subgp} we have that $K=(K\cap Q){:}K_{p'}$. By Lemma \ref{semisimple},
-    $|K_{p'}|$ divides $q_0^2-1$ or $|K_{p'}|$ divides $q_0^2-q_0+1.$ 
-    The later case is not possible since $q_0^2-q_0+1$ divides $q+1$ and the elements in  $N$ or order $q+1$ has two same eigenvalues but the $3$-eigenvalues of  elements in $H$ are all different.
-    Since $3\divides\frac{q^2-1}{q_0^2-1}$, $\FF_{q_0^2}^{\times}$ is contained in the index $3$ subgroup of $\FF_q$. Therefore, if $q\equiv 1 \pmod 3$, $H\cap Q$ contains only $1$ $G$-classes of elements in $Q\backslash Z(Q)$. We conclude $K\cap Q$ contains only $1$ $G$-classes of elements in $Q\backslash Z(Q)$. 
-\end{proof}
-\end{lemma} 
 
-
-		
-		
-
-\end{document}
+\end{lemma}
+  \begin{proof}
+   Let $G_3$ be the Sylow-$3$ subgroup of $G$. 
+   
+   If $q\equiv -1 \pmod 3$, then one may conclude that $|G_3|=3(q+1)_3^2$, and hence $G_3$ is contained in a maximal subgroup of $G$ isomorphic to $(q+1)^3/(3,q+1){:}S_3.$
+   We take an orthogonal normal basis $\{e_1,e_2,e_3\}$ of a $3$-dimensional unitary basis, and let $\mu$ be a generator of the cyclic subgroup of order $(q+1)_3$ of $\FF_{q^2}^{\times}.$ 
+   Let $a_1=\overline{\mathrm{diag}(\mu, 1, \mu^{-1})}$, $a_2=\overline{\mathrm{diag}( 1,\mu, \mu^{-1})}$ and $b=\bar{M}$ with respect to $\{e_1,e_2,e_3\}$, where $M$ is a permutation matrix of $(1,2,3)$, and the overline denotes the matrices modulo the center of $\SU_3(q)$. 
+   Let $L=\lr a_1,a_2,b\rr$, then $L\le G$ and $|L|=|G_3|$, we check the generating relations of $L$ and conclude the first statement holds.
+    
+   Let $J$ be a subgroup of $L$, if the exponent of $J$ is $3$, then $J\cap \lr a_1,a_2\rr \le \Omega_1(\lr a_1, a_2 \rr)$, hence $|J\cap \lr a_1,a_2 \rr|\le (q+1,9)$ and $|J|\le 3(q+1,9)$. 
+   If $|J|=27$, then $9$ divides $q+1$ and $J\cap \lr a_1,a_2\rr =\lr a_1^{t/3},(a_1a_2)^{t/9}\rr,$ let $g\in J\backslash(\lr a_1, a_2 \rr)$, we write $g=a_1^ma_2^nb$ and we conclude $J$ is not abelian since $g$ does not commute with $(a_1a_2)^{t/9}$.  Therefore, we have already shown the statements of $(i)$.
+   
+   If $q\equiv 1 \pmod 3$, then $|G_3|=(q-1)_3$ and hence $G_3$ is cyclic since there is a cyclic subgroup of order $q-1$ in $G$.
+  \end{proof}
+  
+  \begin{lemma}\label{Syl-r}
+  	If $r$ is a prime and $r\notin\{2,3,p \},$ then the Sylow-$r$ subgroup is either cyclic or a direct product of two cyclic groups.
+  \end{lemma}
+  \begin{proof}
+  	It is clear that $r$ divides exactly one of $q-1$, $q+1$ and $\frac{q^2-q+1}{(3,q+1)}.$ If $r$ divides $q-1$ or $\frac{q^2-q+1}{(3,q+1)}$, then the Sylow-$r$ subgroup of $G$ is cyclic since $G$ contains cyclic subgroups of order $q-1$ and $\frac{q^2-q+1}{(3,q+1)}.$
+  	If $r$ divides $q+1$, then the Sylow-$r$ subgroup of $G$ is contained in a subgroup isomorphic to $(q+1)^2/(3,q+1)$, and hence it is isomorphic to $(q+1)_r^2.$
+  \end{proof}
+  Since $|K|\ge |H|$, we conclude $H$ is not a parabolic subgroup by (\ref{order}).
+  Assume $H$ is a stabilizer of a two dimensional subspace then $H\cong \GU_2(q)/(q+1,3)$, hence by (\ref{order}) we conclude $K$ is contained in a maximal parabolic subgroup.
+  Up to a conjugation, we may assume $K\le N_G(Q)$ and $K=(K\cap Q){:}K_{p'}$.
+  Since all unipotent element in $H$ are conjugate, we conclude that $|K\cap Q|\le q$ by Lemma \ref{unipotent} and $|K|\le q\frac{q^2-1}{(3,q+1)}<|H|$, a contradiction.
+  
+  Assume $H\cong \mathrm{SO}_3(q)$ where $q$ is odd and $q\ge 7$, then by (\ref{order}) we have that $K$ is contained in a maximal parabolic subgroup or $K$ is contained in a $2$-subspace stabilizer.
+  If $K$ is contained in a maximal parabolic subgroup, up to a conjugation we assume $K\le N_G(Q)$ and $K=(K\cap Q){:}K_{p'}$. 
+  Since $H$ contains only $1$ class of unipotent elements, hence $|K\cap Q|\le q$ by Lemma \ref{unipotent}. We also have $|K_{p'}|\le q+1$ since the order of semisimple elements in $H$ are a divisor of $q-1$ or a divisor of $q+1$. 
+  Therefore, we conclude that $|K|=|K\cap Q||K_{p'}|\le q(q+1)< |H|$, a contradiction.
+  If $K$ is contained in a $2$-subspace stabilizer and $\mathrm{Char}(q)\neq 2$, then by \textbf{Lemma} of basic fact, we conclude that the unipotent elements in $H$ and the $2$-subspace stabilizer are not conjugate.
+  Therefore, we conclude that $|K|$ is coprime to $p$ and hence $K$ is contained in a maximal subgroup of the $2$-subspace stabilizer of Aschbacher class $\mathcal{C}_2$, $\mathcal{C}_3$ or $\mathcal{I}$, hence $|K|<|H|$. 
+  
+  Assume $H$ is a maximal $\mathcal{C}_2$ subgroup and $H\cong (q+1)^2/(3,q+1){:}S_3$.
+  %If $p=\mathrm{Char}(q)\neq 2,3$, we have that all elements in $H$ are semisimple. 
+  %If $K$ is contained in a maximal parabolic subgroup, then $K\le K_{p'}$ and hence $|K|<|H|$. If $K$ is contained in a $2$-subspace stabilizer, then $K$ is contained in a maximal subgroup of Aschbacher class $\mathcal{C}_2$, $\mathcal{C}_3$ or $\mathcal{I}$ of the $2$-subspace stabilizer, and hence $|K|<|H|$. 
+  %Similarly, if $K\lesssim \mathrm{SO}_3(q)$ then we conclude $|K|<|H|$. If $K$ is a subgroup of $\PSU_3(q^{1/3}).(\frac{q+1}{q^{1/3}+1})$.
+  %If $\mathrm{Char}(q)=2,3$ we have that 
+  Since the order of unipotent elements in $H$ are $2$ or $3$, we conclude that $H$ contains at most $1$ class of unipotent elements. 
+  We also note that the order of semisimple elements in $H$ are divisors of $2(q+1)$ or $3$.
+  If $K$ is contained in a maximal parabolic subgroup, then $|K_p|\le q$ by Lemma (\ref{unipotent}) and $|K_{p'}|\le 2(q+1)$ since $\mathrm{Spec}(K)\subseteq \mathrm{Spec}(H)$, hence $|K|=|K_{p}||K_{p'}|<|H|$.
+  If $K$ is contained in a $2$-subspace stabilizer $K_1\cong \GU_2(q)/(3,q+1)$, we conclude that $K$ does not contain a subgroup isomorphic to $\SU_2(q_0)$ or $q_0\in \{3,4,5\}$ since $\SU_2(q_0)$ contains a semisimple element of order $q_0-1$ and $(q_0-1,2(q+1))$ divides $4$. 
+  On the other hand, since $|K|\ge |H|$ we conclude $K$ contains the unique subgroup of $K_1$ isomorphic to $\SU_2(q)$, or $K$ is a maximal subfield subgroup of $K_1$, or $K\lesssim \SL_2(5)\circ \frac{q+1}{(3,q+1)}$ and $q\le 9$, or $K\lesssim \GL_2(3)\circ \frac{q+1}{(3,q+1)}$ and $q\le 7$. 
+  Therefore, we conclude $q\le 9$ and leave the remaining discussion to Magma. 
+  If $K$ is contained in a maximal subgroup $K_1$ such that $K_1\cong \mathrm{SO}_3(q)$, then since $|K|\ge |H|$ we conclude $K=K_1\cong \mathrm{SO}_3(q)$, then there is a semisimple element in $H$ of order $q-1$ since $q-1\in \mathrm{Spec}(K)\subseteq \mathrm{Spec}(H)$, therefore, we conclude that $q\in\{3,4,5\}$ and leave the remaining discussion to Magma. 
+  If $q$ is a cube and $K$ is a subgroup of $\PSU_3(q^{1/3}).(q+1,3)$. Since $|K|\ge |H|$, we conclude that either $K=K_1$ or $K$ is contained in a maximal subgroup of $K_1$ of Aschbacher class $\mathcal{I}$. 
+  Moreover, we conclude $K$ is not $K_1$ since $K_1$ contains at least $2$ classes of unipotent elements. 
+  As a result, we conclude $K$ is contained in a maximal subgroup of $K_1$ in Aschbacher class $\mathcal{I}$ and  $K\lesssim \LL_2(7)$, or $K \lesssim A_6$ and $q^{1/3}\equiv 11, 14  \pmod {15}$, or $q^{1/3}=5$ and $K\lesssim  A_6.2$ or $K\lesssim A_7$, but none of the above cases are possible since $|K|\ge |H|$.
+  By (\ref{order}), we conclude that no intersecting subgroup of $G$ satisfy $|K|\ge |H|$.
+  
+  Assume $H$ is a maximal $\mathcal{C}_3$ subgroup and $H\cong \frac{q^2-q+1}{(3,q+1)}{:}3$, then by (\ref{order}) we conclude that $K$ is contained in a maximal subgroup isomorphic to one of $E_q^{1+2}{:}\frac{q^2-1}{(3,q+1)},\GU_2(q)/(3,q+1), \mathrm{SO}_3(q), \PSU_3(q^{1/3})$ and $(q+1)^2/(3,q+1){:}S_3$.
+   We observe that the order of the semisimple elements in $H$ are a divisor of $q^2-q+1$ or $3$, we also observe that if $H$ contains unipotent elements, then the unipotent elements in $H$ are conjugate to the Sylow-$3$ subgroup $H_3$ of  $H$ and $H_3\cong 3$.
+  Since $(q^2-q+1,q^2-1)=(3,q+1)$ and $q^2-q+1$ is always odd, we conclude if $K$ is contained in a maximal subgroup isomorphic to one of $\mathrm{E}_q^{1+2}{:}\frac{q^2-1}{(3,q+1)}$, $\GU_2(q)/(3,q+1)$, $\mathrm{SO}_3(q)$, $\PSU_3(q^{1/3}).(3,q+1)$ and $(q+1)^2/(q+1,3){:}S_3$, then the order of the semisimple elements in $K$ is $3$. 
+  Therefore, we conclude in above cases, either all elements in $K$ is semisimple of order $3$ or all elements in $K$ is unipotent of order $3$ and hence $K$ is a $3$-group.
+  On the other hand, we examine the Sylow-$3$ subgroup of $G$. If $q\equiv 0 \pmod 3$, then $q=3^t$ for some integer $t$ and $K\le Q$, hence $|K|\le q$ since all elements in $K$ are conjugate to a cyclic subgroup and we apply Lemma (\ref{unipotent}). If $q\equiv -1 \pmod 3$, then we conclude $K$ is contained in the cyclic subgroup of order $\frac{q^2-1}{(3,q+1)}$ and $K\cong 3$. If $q\equiv 1\pmod 3$, then $K\lesssim (q+1)^2/(3,q+1)$ and hence $K\cong 3^2$.
+  In all these case we have $|K|<|H|$.
+  
+  If $H$ is isomorphic to $\PSU_3(q_0).(\frac{q+1}{q_0+1},3)$, where $q=q_0^r$ and $r$ is an odd prime, then the order of  semisimple elements in $H$ are a divisor of $\frac{q_0^2-1}{(3,q_0+1)}$ or a divisor of $\frac{q_0^2-q_0+1}{(3,q_0+1)}.$   
+  We observe that $(q_0^2-1,q+1)=q_0+1$, we also observe that $q_0^2-q_0+1$ divides $q+1$ if $q=q_0^3$ while $(q_0^2-q_0+1,q^2-1)=(q_0^2-q_0+1,q+1)=(3,q_0+1)$ if $q=q_0^r$ and $r\neq 3$.
+  
+  \textbf{If $K$ is a subgroup of the maximal parabolic subgroup of $G$, then we discussed it in detail.}
+  If $H$ is isomorphic to $\PSU_3(q_0).(\frac{q+1}{q_0+1},3)$ and $K$ is contained in a maximal subgroup $K_1$ in Aschbacher class $\mathcal{C}_2$, then $K_1\cong (q+1)^2/(3,q+1){:}S_3$. Assume $K_1=M{:}H$, where $M\cong (q+1)^2/(3,q+1)$ and $H\cong S_3$. 
+  We note that each element in $K\cap M$ is semisimple, hence $K\cap M\lesssim (q_0+1)^2/(3,q_0+1)$ or $K\cap M \lesssim (q_0^2-q_0+1)^2/(3,q_0+1)$ and $q=q_0^3$ since $\mathrm{Spec}(K)\subseteq \mathrm{Spec}(H)$. Therefore, we conclude that $|K|=|K\cap K_1||K/K\cap K_1|<|H|,$ a contradiction. 
+  By a similar argument, we conclude that $K$ is not contained in a maximal subgroup of Aschbacher class $\mathcal{C}_3$.
+  
+  If $H$ is isomorphic to $\PSU_3(q_0).(\frac{q+1}{q_0+1},3)$ and $K$ is contained in a $2$ subspace stabilizer $K_1\cong \GU_2(q)/(3,q+1)$, then $K\neq K_1$ since $\frac{q^2-1}{(3,q+1)}\in \mathrm{Spec}(K_1)\backslash \mathrm{Spec}(H)$.
+  Let $K_2$ be the normal subgroup of $K_1$ isomorphic to $\SU_2(q)$, by the classification of the subgroup of $\LL_2(q)$ of Dickson we conclude that either $K\cap K_1$ is isomorphic to one of $\SL_2(q_1)$, $\GL_2(q_1)$, $\GL_2(3)$, $\SL_2(3)$ and $\SL_2(5)$ or 
+  $K$ is contained in a maximal subgroup of $K_1$ isomorphic to one of $q{:}\frac{q^2-1}{(3,q+1)}$, $(q+1)\wr 2$ and $\frac{q^2-1}{(3,q+1)}{:}2$.
+  If $K\le q{:}\frac{q^2-1}{(3,q+1)}$, then we conclude that $K$ is contained in a maximal parabolic subgroup of $G$ and we have analyzed it. 
+  If $K$ is contained in a maximal subgroup of $K_1$ isomorphic to $(q+1)\wr 2$, then $K$ is contained in a maximal $\mathcal{C}_2$ subgroup of $G$ and we already conclude this is not possible.
+  If $K\le M\le K_1$, where $M_1$ is a maximal subgroup of $K_1$ isomorphic to $q^2-1/(3,q+1){:}2$, we write $M$ as $M_0{:}t$ where $M_0\cong (q+1)^2/(3,q+1)$. 
+  We note that $K\cap M_0\lesssim q_0^2-q_0+1$ or $K\cap M_0\lesssim q_0+1$ since $\mathrm{Spec}(K)\subseteq \mathrm{Spec}(H)$, and hence $|K|<|H|$, a contradiction.
+  If $K\cap K_2\cong \SL_2(q_1)$, since $\{q_1-1,q_1+1\}\in \mathrm{Spec}(K)\subseteq \mathrm{Spec}(H)$, we conclude $K$ contains semisimple elements of order $q_1-1$ and $q_1+1$. 
+  Since $(q_1-1,q_0^2-q_0+1)=1$, we conclude $q_1-1$ divides $q_0^2-1$, and hence $(q_1-1)$ divides $(q_0^2-1,q-1)=(q_0-1)$ and $\FF_{q_1}\subseteq \FF_{q_0}$, and then $|K|<|H|$, a contradiction.
+  If $K\cap K_2$ is a finite group, since $K/(K\cap K_2)$ is cyclic and $(|K/(K\cap K_2)|,p)=1$, we conclude that $H$ contains a semisimple element of order $|K/(K\cap K_2)|$ and $|K/K\cap K_2|$ is a divisor of $q_0^2-q_0+1$ or $q_0^2-1$.
+  Since $|K|\ge|H|$, we conclude that $|\SL_2(5)|\ge \frac{|\UU_3(q_0)|}{q_0^2-1}$ and $q_0=2$, we further conclude that  $K\cap K_2\cong A_4$ and $|K|<|H|$, a contradiction.
+  
+  By a similar argument, we conclude that if $H$ is isomorphic to $\PSU_3(q_0).(\frac{q+1}{q_0+1},3)$ then $K$ is not contained in a subgroup isomorphic to $\mathrm{SO}_3(q)$.
+  
+  If $H$ is isomorphic to $\PSU_3(q_0).(\frac{q+1}{q_0+1},3)$ and $K$ is contained in another subfield subgroup $K_1$ such that $K_1\cong \PSU_3(q_1).(\frac{q+1}{q_1+1},3)$.
+  We conclude that $q_1>q_0$ since $|K|\ge |H|$. 
+   Let $M\le K_1$, then $M$ is \textcolor{red}{isomorphic to $\PSU_3(q_2).(\frac{q_1+1}{q_2+1},3)$, or $M$ is contained in a maximal subgroup of $G$ in Aschbacher class $\mathcal{C}_1,\mathcal{C}_2,\mathcal{C}_3$, or $M$ is contained in a maximal subgroup of $G$ of type $\mathrm{SO}_3(q)$, or $H$ is one of $\LL_2(7)$, $A_6$, $A_6.2$ and $A_7$.  } \textbf{Using a Lemma.}
+   We note that if $K\cong \PSU_3(q_2).(\frac{q_1+1}{q_2+1},3)$, then $q_2\ge q_0$ since $|K|\ge |H|$, but then $\frac{q_2^2-1}{(3,q_2+1)}\in \mathrm{Spec}(K)\backslash\mathrm{Spec}(H)$, a contradiction.
+   If $K$ is one of $\LL_2(7), A_6, A_6.2$ or $A_7$, then $|K|\ge |H|$ implies that $q_0=2$, and then $K$ is a $2,3$ group since $\mathrm{Spec}(K)\subseteq \mathrm{Spec}(H)$, a contradiction. 
+   We have discussed the remaining possible choices of $K$ in the previous paragraph.
+   
+   Assume $H$ is a maximal subgroup of $G$ in Aschbacher class $\mathcal{C}_6$, then we have $H\cong 3^2{:}Q_8.(\frac{(q+1,9)}{3})$ and $q=p\equiv -1 \pmod 3$ and $q\ge 11$. 
+   We note that $\mathrm{Spec}(K)\subseteq \mathrm{Spec}(H)\subseteq\{1,2,3,4,6\}$, then $K$ is a $2,3$ group. Let $K_2$ \textbf{may abuse the notation} be the Sylow-$2$ subgroup of $K$, then $K_2$ is of exponent $4$ and $|K_2|\le 16$ by Lemma (\ref{Syl-2}).
+   Let $K_3$ and $H_3$ be the Sylow-$3$ subgroup of $H$ and $K$ respectively, then we have $|K_3|\ge |H_3|$ since $|K|\ge |H|$. Since $K_3$ is of exponent $3$, we conclude that $|K_3|=|H_3|$ by Lemma (\ref{Syl-3}).
+   We examine all the maximal subgroups of $G$ and conclude that a maximal subgroup containing $K_3$ is in Aschbacher class $\mathcal{C}_2$ or $\mathcal{C}_6$. 
+   If $K\le K_1$ such that $K_1$ is a maximal $C_2$ subgroup and $K_1\cong (q+1)^2/3{:}S_3$. Then $K$ is contained in the Hall-${2,3}$ subgroup of $K_1.$ 
+   Let $K_1=M{:}N$ where $M\cong (q+1)^2/3$ and $N\cong S_3$, then $K\cap M=\Omega_1(M_3)$ and $3$ divides $|K/K\cap M|$ since $|K_3|=|H_3|$, and hence $|K\cap M|_2$ is of exponent $2$ since $12\notin \mathrm{Spec}(K).$
+   Since $|K_2|\ge 8$, we conclude that $|K\cap M|_2=\Omega_1(M_2)\cong 2^2$ and $|K/K\cap M|$ is even and $K/K\cap M\cong S_3.$ 
+   We conclude that $\{m^6=1 \mid m\in M\}\subseteq K$, we assume $M$ consists of diagonal matrices and $N$ consists of permutation matrices and let $k_0\in K$ and $k_0=\overline{\mathrm{diag}(-1,\omega,-\omega^2)}$, where $\omega$ is a primitive $3$-rd root of unity of $\FF_p^2.$  
+   We conclude that there exists $k\in K$ such that $k=k_mP$, where $k_m\in M$ and $P$ is the permutation matrix for $(1,2)$, since $K/K\cap M\cong S_3.$ 
+   We conclude $k^2\in M$ and the order of $k^2$ is $1,2$ or $3$ since $\mathrm{Spec}(K)\subseteq \mathrm{Spec}(H)=\{1,2,3,4,6\},$ and hence $1\neq k^2\in \lr k_0k_0^P \rr$ or $\lr k^2 \rr \cap \lr k_0k_0^P \rr=(1)$.
+   If $\lr k^2 \rr \cap  \lr k_0k_0^P \rr=(1)$, then $(k_0k^{-1})^2=k_0k_0^Pk^{-2}$ and $(k_0k^{-1})^2$ is of order $6$ since $k_0k_0^P$ commutes with $k^{-2}$, and $\lr k^{-2} \rr \cap \lr k_0k_0^p \rr$ is trivial, therefore we have $k_0k^{-1}\in K$ and $k_0k^{-1}$ is of order $12$, a contradiction.
+   If $1\neq k^2\in k_0k_0^P,$ then we have $k^2=(k_0k_0^P)^i$ for $i\in [2,3,4]$, then we conclude that $(k_0^{1+i}k^{-1})^2=k_0k_0^P$ and hence $k_0^{1+i}k^{-1}$ is an element of order $12$ in $K$, a contradiction. 
+   
+   Consequently, $K$ is contained in a maximal subgroup of $G$ in Aschbacher class $\mathcal{C}_6$, and we conclude $K$ is maximal since $|K|\ge |H|.$
+   We conclude that $K$ is also a maximal $\mathcal{C}_6$ subgroup and $K$ is conjugate to $H$ in $G.\delta$, we also conclude that $9$ divides $q+1$ since $K$ is not conjugate to $H$. 
+   We note that $K\cong 3^2:Q_8.3,$ and $\mathrm{Spec}(K)\subseteq\{1,2,3,4,6\}$(which means the order of elements in $K$).  
+   Hence we conclude that every element in $K$ is conjugate to $H$ in $G.\delta.$ 
+   Let $k\in K$ and let $t$ be the order of $k$, if $t$ is $2,3$ or $6.$ 
+   Then since $t$ divides $q+1$, we conclude by (\textbf{we add some reference in derangements and prime}.) that $t$ is conjugate to 
+   $\overline{\mathrm{diag}(\lambda_1,\lambda_2,\lambda_3)}$ in $G. \lr \delta \rr,$ where $\lambda_1\lambda_2\lambda_3=1.$
+   Hence $C_{G.\lr \delta \rr}(t)=3C_{G}(t)$ by direct calculation.
+   If $t=4$, then since $t$ divides $q^2-1$, we conclude that $k$ is conjugate to a diagonal matrix in $G$ if $4$ divides $q+1$, and $k$ is conjugate to \textbf{Think about how to state it smoothly.}  
+          
+   Then we assume $H$ contains a maximal subgroup in Aschbacher class $\mathcal{I}$, then it suffices to conclude the cases when $K$ is contained in a maximal $\mathcal{I}$ subgroup and the cases when $H$ is a maximal $\mathcal{I}$ subgroup.
+   
+   If $K$ is contained in a maximal subgroup isomorphic to $\LL_2(7)$, then $q=p\equiv 3,5,6\pmod 7$ and $q\neq 5.$ We note that $|H|\le |K|\le 168$, if $H$ is a maximal subfield subgroup then $H\cong \PSU_3(2)$ since $|\PSU_3(3)|\ge K$. 
+   Then $K$ is a $2,3$ group of $\LL_2(7)$ since $\mathrm{Spec}(K)\subseteq \mathrm{Spec}(H)$, hence we conclude that $|K|<24<|H|$, a contradiction.
+   Similarly, we conclude that $H$ is not a maximal subgroup in Aschbacher class $\mathcal{C}_6$. 
+   If $H$ is a maximal subgroup in Aschbacher class $\mathcal{I}$, then since $|K|\ge |H|$, we conclude that both $H$ and $K$ are isomorphic to $\LL_2(7),$ since $H$ and $K$ are not conjugate in $G$, we conclude $3$ divides $q+1$. \textbf{The remaining read   about how $c$ comes.}
+   For the remaining cases, by (\ref{order}) we conclude that $$|\LL_2(7)|\ge|K|\ge |H|\ge |\frac{q^2-q+1}{(3,q+1)}{:}3|,$$
+   and hence $q=3$ we leave it to Magma.
+   
+   If $K$ is contained in a maximal subgroup isomorphic to $A_6$, then $q=p\equiv 11,14 \pmod {15}$ and $H$ is isomorphic to $\LL_2(7)$ or $A_6$ since $|K|\ge |H|$. If $H$ is a maximal $\mathcal{I}$ subgroup isomorphic to $\LL_2(7)$, then since $\mathrm{Spec}(K)\subseteq \mathrm{Spec}(H)=\{1,2,3,4,7\}$, then $K$ is a $2,3$ subgroup of $A_6$ and hence $|K|\le 36 <|H|$, a contradiction. 
+   If $H$ is a maximal subgroup isomorphic to $A_6$, then \textbf{read about how $c$ comes}.
+   Similarly as the argument when $K$ is contained in a maximal subgroup isomorphic to $\LL_2(7)$, we conclude that $H$ is not a subfield subgroup of a maximal subgroup in Aschbacher class $\mathcal{C}_6$, and by (\ref{order}) we have that 
+   $$|A_6|\ge |K|>|H|\ge |\frac{q^2-q+1}{(3,q+1)}{:}3|,$$
+   and we conclude that $q=11$, $K=A_6$ and $H\cong 37{:}3$ or $H\cong 12^2/3{:}S_3$, but then $5\in \mathrm{Spec}(K)\backslash \mathrm{Spec}(H)$, a contradiction.
+   If $K$ is contained in a maximal subgroup isomorphic to  $A_6.2$ or $A_7$, then $q=5$ and we leave it to Magma.
+   
+   If $H$ is a maximal $\mathcal{I}$ subgroup isomorphic to $\LL_2(7)$, then $q=p\equiv 3,5,6\pmod 7$, and $\mathrm{Spec}(K)\subseteq \mathrm{Spec}(H)=\{1,2,3,4,7\}.$
+   Assume $K$ is solvable, and let $M$ be the socle of $K$, then $M$ is elementary abelian $r$-group, where $r\in\{2,3,7\}$ since $\mathrm{Spec}(K)\subseteq \mathrm{Spec}(H).$
+   If $r=2$, by Lemma (\ref{Syl-2}) we conclude that $M\cong 2^2$ or $M\cong 2$. Since $K$ does not contain an element of order $6$ or $17$, we conclude that $C_{K}(M)$ is a $2$-group of exponent $4$ and hence $|C_{K}(M)|\le 16$ by Lemma (\ref{Syl-2}).
+   As a result, we conclude that $|K|\le |\Aut(M)||C_{K}(M)|\le 96< |H|$, a contradiction.
+   If $r=3$, we conclude that $M\cong 3$ or $M\cong 3^2$ by Lemma (\ref{Syl-3}), since $K$ does not contain an element of order $6$ or $21$, we conclude that $C_{K}(M)$ is a $3$-group of exponent $3$, and $|C_{K}(M)|\le 9$ by Lemma (\ref{Syl-3}). 
+   On the other hand, we have $K/C_{K}(M)\lesssim \GL_2(3)$ and $\mathrm{Spec}(K/C_{K}(M))\subseteq\{1,2,3,4,7\},$   we conclude that $K/C_K(M)$ is isomorphic to a subgroup of one of $Q_8,D_8$ or $S_3$ by Magma and hence $|K|\le |C_{K}(M)||\Aut(M)|<|H|.$
+   If $r=7$, we conclude that $M\cong 7$ or $M\cong 7^2$ by Lemma (\ref{Syl-r}), similarly $C_{K}(M)$ is a $7$-group since $K$ does not contain elements of order $14$ or $21$ and hence $C_{K}(M)\lesssim 7^2$ by Lemma (\ref{Syl-r}).
+   If $M\cong 7$, then $|K/C_{K}(M)|\le 6$ and hence $|K|\le |C_{K}(M)||\Aut(M)|<|H|$.
+   If $M\cong 7^2$, then $M=C_{K}(M)$ is the Sylow-$7$ subgroup of $G$ and $K\le N_G(M)\cong (q+1)^2/(3,q+1){:}S_3$, we write $N_{G}(M)$ as $N{:}S$ where $N\cong (q+1)^2/(2,q+1)$ and $S\cong S_3.$
+   We conclude $K/C_{K}(M)\lesssim N_{G}(M)/C_{G}(M)\lesssim S_3$ since $N\le C_{G}(M)$, on the other hand, each involution not in the center of $\GL_2(7)$ fixes some vector in $\FF_{7}^2$ and hence if $K/C_{K}(M)=S_3$, then there exist $k\in K$ and $m\in M$ such that $k^2=1$ and $km=mk$, and $km$ is of order $14$, a contradiction.
+   Therefore, we conclude that $|K|\le |3C_{K}(M)|<|H|.$
+   If $K$ is non-solvable, then $K$ contains a simple factor, since a non-abelian simple group with $3$ prime factors
+   \textbf{Continue...}
+   
+   
+   If $H$ is a maximal $\mathcal{I}$ group isomorphic to $A_6$, then $\mathrm{Spec}(K)\subseteq \mathrm{Spec}(H)=\{1,2,3,4,5\}$. 
+   Assume $K$ is solvable and let $M$ be the socle of $K$, since $\mathrm{Spec}(K)\subseteq\{1,2,3,4,5\},$ then $M$ is an elementary abelian $r$-group for $r\in \{2,3,5\}$, by the same argument when $H\cong \LL_2(7)$, we conclude that $|K|<|H|$.
+   
+   If $H$ is a maximal $\mathcal{I}$ subgroup isomorphic to $A_6.2$ or $A_7$, we conclude that $q=5$ and we leave all the things to Magma.
+  
+ \end{document}
